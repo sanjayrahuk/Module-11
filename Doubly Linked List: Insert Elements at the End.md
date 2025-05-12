@@ -35,9 +35,46 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add Code here
+```
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+        new_node.prev = last_node
+    def traverse(self):
+        current_node = self.head
+        if not current_node:
+            print("The list is empty.")
+            return
+        print("Doubly Linked List:")
+        while current_node:
+            print(current_node.data, end=" <-> " if current_node.next else "")
+            current_node = current_node.next
+        print()
+dll = DoublyLinkedList()
+n = int(input("Enter the number of elements you want to insert: "))
+for i in range(n):
+    value = input(f"Enter value {i + 1}: ")
+    dll.insert_at_end(value)
+dll.traverse()
+```
 
 ## Sample Output
+![442496030-2263449d-f15a-4e8c-a85b-49f4939ba119](https://github.com/user-attachments/assets/795fef11-9d8f-4bc5-b8df-0cdd3c0a87c9)
 
 ## Result
-
+Thus the program has been executed successfully.
